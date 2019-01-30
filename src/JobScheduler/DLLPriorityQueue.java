@@ -1,10 +1,13 @@
 package JobScheduler;
 
 /**
+ * This is a maximum oriented priority queue.
+ * This uses a doubly linked list as the data structure
  * Created by Elliott Pryor on 1/22/2019.
+ *
  * @param <E> The type of object to be held within the queue
  */
-public class PriorityQueue<E> {
+public class DLLPriorityQueue<E> {
 	
 	private static class Node <E> {
 		// Fields
@@ -46,7 +49,7 @@ public class PriorityQueue<E> {
 	private int size;
 	
 	// Constructor
-	public PriorityQueue() {
+	public DLLPriorityQueue() {
 		this.header = new Node<>(null, Integer.MAX_VALUE, null, null);
 		this.trailer = new Node<>(null, Integer.MIN_VALUE,this.header, null);
 		this.header.setNext(this.trailer);
@@ -101,7 +104,6 @@ public class PriorityQueue<E> {
      * @param successor The node that comes after this node
      */
 	private void addBetween(E e, int priority, Node<E> predecessor, Node<E> successor) {
-		System.out.println("Adding " + e + " between: " + predecessor.getElement() + " and " + successor.getElement());
 		Node<E> newest = new Node<>(e, priority, predecessor, successor);
 		predecessor.setNext(newest);
 		successor.setPrev(newest);

@@ -18,7 +18,7 @@ public class Main {
 
         sortJobs(jobs);
 
-        PriorityQueue<Job> queue = new PriorityQueue<>();
+        DLLPriorityQueue<Job> queue = new DLLPriorityQueue<>();
 
         boolean run = true;
         int nextJob = 0;
