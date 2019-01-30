@@ -26,7 +26,6 @@ public class Heap<E> {
 
     private Node[] nodes;
     private boolean dynamic;
-    private int size;
     private int index;
 
     public Heap(){
@@ -36,7 +35,6 @@ public class Heap<E> {
         nodes = new Node[size + 1];
         nodes[0] = null;
         dynamic = !static_size;
-        this.size = 0;
         index = 1;
     }//four way heap is fastest
 
@@ -54,23 +52,19 @@ public class Heap<E> {
 
     public void insertNode(E e, int priority){
         Node n = new Node(e, priority);
-        if(size < nodes.length - 2){
+        if(index < nodes.length - 2){
             nodes[index] = n;
             pushUp(n, index);
             index++;
-            size++;
         } else if(dynamic){
             growSize();
             nodes[index] = n;
             pushUp(n, index);
             index++;
-            size++;
         } else{
-            //TODO: remove either min then max, then add the node
             removeHead();
             nodes[index] = n;
             pushUp(n, index);
-            index++;
         }
     }
 
@@ -128,15 +122,11 @@ public class Heap<E> {
     public E removeNode(int index){
         try {
             E retMe = (E) nodes[index].getElement();
-            if (size > 1) {
-                nodes[index] = nodes[--this.index];
-                nodes[this.index] = null;
-                index = pushUp(nodes[index], index);//checks to make sure it shouldn't be floated up
-                pushDown(nodes[index], index);//checks to see if it can float down
-            } else {
-                nodes[1] = null;
-            }
-            size--;
+            nodes[index] = nodes[--this.index];
+            nodes[this.index] = null;
+            index = pushUp(nodes[index], index);//checks to make sure it shouldn't be floated up
+            pushDown(nodes[index], index);//checks to see if it can float down
+
             return retMe;
         }catch (ArrayIndexOutOfBoundsException e){
             System.out.println(e.getMessage());
@@ -154,14 +144,13 @@ public class Heap<E> {
     }
 
     public int size(){
-        return size;
+        return index - 1;
     }
 
     public String toString(){
         StringBuilder sb = new StringBuilder();
         sb.append("(");
-        for (int i = 1; i <= size; i++){
-            System.out.println(i);
+        for (int i = 1; i < index; i++){
             sb.append((E) nodes[i].getElement() + ", ");
         }
         sb.append(")");
