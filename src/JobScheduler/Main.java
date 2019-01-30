@@ -1,5 +1,7 @@
 package JobScheduler;
 
+import DataStructures.DLLPriorityQueue;
+
 /**
  * Created by pryor on 1/18/2019.
  */

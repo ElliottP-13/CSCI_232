@@ -1,5 +1,8 @@
 package JobScheduler;
 
+import DataStructures.DLLPriorityQueue;
+import DataStructures.Heap;
+
 import java.util.Random;
 
 /**
@@ -15,14 +18,14 @@ public class Test {
         Random rand = new Random();
         long start = System.currentTimeMillis();
 
-        for (int i = 0; i < 1000000; i++) {
+        for (int i = 0; i < 100000; i++) {
             ints.enqueue(rand.nextInt(100), rand.nextInt(100));
         }
         System.out.println("Filling values took: " + (start - System.currentTimeMillis()));
         System.out.println(ints.toString());
 
         Heap<Integer> intss = new Heap<>();
-        for (int i = 0; i < 1000000; i++) {
+        for (int i = 0; i < 100000; i++) {
             int n = rand.nextInt(100);
             intss.insertNode(n, n);
         }

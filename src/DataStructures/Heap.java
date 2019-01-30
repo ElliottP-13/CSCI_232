@@ -1,7 +1,5 @@
-package JobScheduler;
+package DataStructures;
 
-
-import java.util.Arrays;
 
 /**
  * Created by pryor on 1/29/2019.

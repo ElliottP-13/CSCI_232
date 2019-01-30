@@ -1,4 +1,4 @@
-package JobScheduler;
+package DataStructures;
 
 /**
  * This is a maximum oriented priority queue.
