@@ -22,17 +22,32 @@ public class Heap<E> {
         }
     }
 
-    private Node[] nodes;
-    private boolean dynamic;
-    private int index;
-    private boolean maxOriented;
+    private Node[] nodes;//The heap
+    private boolean dynamic;//Whether or not the heap should scale --> saves memory
+    private int index; //The bottom of the heap
+    private boolean maxOriented; //if true --> Max priority on top if false --> min priority on top
 
+    /**
+     * Creates a max oriented heap with an initial size of 10
+     */
     public Heap(){
         this(10, true,false);
     }
+
+    /**
+     * Creates a heap with an initial size of 10
+     * @param isMaxOriented Max orientation places highest priority items at the top of the node
+     */
     public Heap(boolean isMaxOriented){
         this(10, isMaxOriented, false);
     }
+
+    /**
+     * Creates a heap of the given size and orientation
+     * @param size Initial size of the heap
+     * @param isMaxOriented Max orientation places highest priority items at the top of the node
+     * @param static_size Determines whether or not the heap should increase in size to fit new data
+     */
     public Heap(int size, boolean isMaxOriented, boolean static_size){
         nodes = new Node[size + 1];
         nodes[0] = null;
@@ -53,19 +68,26 @@ public class Heap<E> {
         nodes = newNodes;
     }
 
+    /**
+     * Inserts an element into the heap based on a given priority
+     * @param e The element to be inserted
+     * @param priority The priority of the element
+     */
     public void insertNode(E e, long priority){
 
         Node n = new Node(e, maxOriented ? priority: -priority);//if not max oriented, set priority to negative priority
-        if(index < nodes.length){
+        if(index < nodes.length){ //The heap does not need to grow to fit the new data
+            nodes[index] = n;
+            pushUp(index);//Float the new data up based on its priority
+            index++;//increment the index to change where the tail is
+        } else if(dynamic){//The heap needs to grow to fit the new data, so increase the size then add the node
+            growSize();//doubles the size of the array
             nodes[index] = n;
             pushUp(index);
             index++;
-        } else if(dynamic){
-            growSize();
-            nodes[index] = n;
-            pushUp(index);
-            index++;
-        } else{
+        } else{//Remove the top element then add the data
+            //NOTE: to store max values it needs to be min oriented heap because the smallest number needs to be removed
+
             removeHead();
             nodes[index] = n;
             pushUp(index);
@@ -97,18 +119,15 @@ public class Heap<E> {
      * @return the index that it was placed at
      */
     private int pushDown(int i){
-        while(i * 2 + 1 < index){
+        while(i * 2 + 1 < index){//Makes sure that child 2 is within the heap
            if(nodes[i * 2].priority > nodes[i].priority ||
-                    nodes[i * 2 + 1].priority > nodes[i].priority){
-                //System.out.println("Bring down");
-                if(nodes[i * 2].priority > nodes[i * 2 + 1].priority){//swap at child 1
-                    //System.out.println("Switch Child 1");
+                    nodes[i * 2 + 1].priority > nodes[i].priority){ //If either child 1 or child 2 are greater
+               if(nodes[i * 2].priority > nodes[i * 2 + 1].priority){//swap at child 1
                     Node temp = nodes[i * 2];
                     nodes[i * 2] = nodes[i];
                     nodes[i] = temp;
                     i = i * 2;
                 } else{ //swap at child 2
-                    //System.out.println("Change Child 2");
                     Node temp = nodes[i * 2 + 1];
                     nodes[i * 2 + 1] = nodes[i];
                     nodes[i] = temp;
@@ -118,7 +137,7 @@ public class Heap<E> {
                break;
            }
         }
-        if(i * 2 < index){
+        if(i * 2 < index){ //It is possible that only child 1 is in the heap and not child 2 so make sure that child 1 isn't greater
             if(nodes[i*2].priority > nodes[i].priority){
                 Node temp = nodes[i * 2];
                 nodes[i * 2] = nodes[i];
@@ -126,7 +145,7 @@ public class Heap<E> {
             }
         }
 
-        return i;
+        return i;//return where the element was placed
     }
 
     /**
@@ -139,7 +158,7 @@ public class Heap<E> {
             E retMe = (E) nodes[i].getElement();
             nodes[i] = nodes[--index];
             nodes[index] = null;
-            i = pushUp(i);//checks to make sure it shouldn't be floated up
+            i = pushUp(i);//checks to make sure it shouldn't be floated up because the node could be in the middle of the heap
             pushDown(i);//checks to see if it can float down
 
             return retMe;
@@ -158,10 +177,19 @@ public class Heap<E> {
         return removeNode(1);
     }
 
+    /**
+     * Returns the size of the heap
+     * Returns zero if nothing is in the heap
+     * @return The size of the heap
+     */
     public int size(){
         return index - 1;
     }
 
+    /**
+     * Converts the heap to a string of form "(E, E, E, ..., E)"
+     * @return a String representation of the heap
+     */
     public String toString(){
         StringBuilder sb = new StringBuilder();
         sb.append("(");
