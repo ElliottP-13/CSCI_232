@@ -18,4 +18,10 @@ public class Job {
         arrival = a;
         duration = d;
     }
+
+    @Override
+    public String toString(){
+        return "" + job;
+    }
+
 }

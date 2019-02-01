@@ -177,6 +177,10 @@ public class Heap<E> {
         return removeNode(1);
     }
 
+    public E getHead(){
+        return (E) nodes[1].getElement();
+    }
+
     /**
      * Returns the size of the heap
      * Returns zero if nothing is in the heap
@@ -184,6 +188,14 @@ public class Heap<E> {
      */
     public int size(){
         return index - 1;
+    }
+
+    /**
+     *
+     * @return True if the heap is empty, false otherwise
+     */
+    public boolean isEmpty(){
+        return index-1 == 0;
     }
 
     /**

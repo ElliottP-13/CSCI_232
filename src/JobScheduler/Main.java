@@ -1,18 +1,23 @@
 package JobScheduler;
 
+import Assets.ReadWrite;
 import DataStructures.DLLPriorityQueue;
+import DataStructures.Heap;
+
+import java.util.Arrays;
 
 /**
  * Created by pryor on 1/18/2019.
  */
 public class Main {
     public static void main(String[] args) {
-        String[] in = args[0].split("\n");
+        ReadWrite r = new ReadWrite();
+        String[] in = r.readEntireFile(args[0]).split("\r?\n");
         Job[] jobs = new Job[in.length];
         for (int i = 0; i < in.length; i++) {
             String[] temp = in[i].split(" ");
-            int[] data = new int[4];
-            for (int j = 0; j < 4; j++){
+            int[] data = new int[temp.length];
+            for (int j = 0; j < temp.length; j++){
                 data[j] = Integer.parseInt(temp[j]);
             }
             jobs[i] = new Job(data[0], data[1], data[2], data[3]);
@@ -20,7 +25,7 @@ public class Main {
 
         sortJobs(jobs);
 
-        DLLPriorityQueue<Job> queue = new DLLPriorityQueue<>();
+        Heap<Job> heap = new Heap();
 
         boolean run = true;
         int nextJob = 0;
@@ -28,20 +33,23 @@ public class Main {
 
         while (run){
             //Adds the jobs when they get received
-            if(seconds == jobs[nextJob].arrival && nextJob < jobs.length){
-                queue.enqueue(jobs[nextJob], jobs[nextJob].priority);
-                nextJob++;
-            } else if (nextJob >= jobs.length && queue.isEmpty()){
+            if(nextJob < jobs.length){
+                if(seconds == jobs[nextJob].arrival && nextJob < jobs.length){
+                    heap.insertNode(jobs[nextJob], jobs[nextJob].priority);
+                    nextJob++;
+
+                }
+            }
+            else if (nextJob == jobs.length && heap.isEmpty()){
                 run = false;
             }
 
-            if(!queue.isEmpty()){
-                System.out.println("Working on Job: " + queue.first().job);
-                if(queue.first().startTime == -1){
-                    queue.first().startTime = seconds;
+            if(!heap.isEmpty()){
+                if(heap.getHead().startTime == -1){
+                    heap.getHead().startTime = seconds;
                 }
-                if(queue.first().duration-- <= 0){
-                    Job j = queue.dequeue();
+                if(heap.getHead().duration-- <= 0){
+                    Job j = heap.removeHead();
                     j.endTime = seconds;
                     System.out.println("Finished Job " + j.job);
                     System.out.println("Waiting Time for job " + j.job + ": " + (j.startTime - j.arrival));
