@@ -42,12 +42,16 @@ public class Creative_1 {
         }
         System.out.println("Two Sum Count: " + count_twoSum);
 
+
         for (int i = 0; i < n; i++) {//scramble
             int temp = nums[i];
             int s = rand.nextInt(n);
             nums[i] = nums[s];
             nums[s] = temp;
         }
+
+        //////////////////////////////////////////////////////
+        //Three Sum Faster
 
         Arrays.sort(nums);
         int count_threeSum = 0;

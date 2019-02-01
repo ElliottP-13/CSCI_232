@@ -22,7 +22,7 @@ public class Creative_2 {
             e.printStackTrace();
         }
 
-        int n = 100;
+        int n = 1000000;
 
         Heap<Point> points = new Heap<>(false);
         ArrayList<int[]> duplicates = new ArrayList<>();
@@ -60,7 +60,8 @@ public class Creative_2 {
                     appendMe.append("A: " + prevPoints[0] + " B: " + prevPoints[1] + " C: " + p.i + " D: " + p.j);
                     appendMe.append('\n');
 
-                    if(counter % 1000 == 0){
+                    if(counter % 10000 == 0){
+                        System.out.println("Counter: " + counter/10000);
                         writer = new FileWriter(output, true);
                         writer.append(appendMe.toString());
                         writer.close();
