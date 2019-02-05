@@ -13,7 +13,7 @@ import java.util.Random;
 public class MakeInputs {
     public static void main(String[] args) {
         Random rand = new Random();
-        int n = 10; //number of trials
+        int n = 50; //number of trials
         ReadWrite r = new ReadWrite();
         File f = r.createFileIfNotExists("input.txt");
         String writeme = "";
