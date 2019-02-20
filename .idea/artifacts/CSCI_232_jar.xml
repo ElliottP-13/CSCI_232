@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="CSCI_232:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/CSCI_232_jar</output-path>
+    <root id="archive" name="CSCI_232.jar">
+      <element id="module-output" name="CSCI_232" />
+    </root>
+  </artifact>
+</component>

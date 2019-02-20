@@ -1,10 +1,7 @@
-package JobScheduler;
+package Lab1;
 
 import Assets.ReadWrite;
-import DataStructures.DLLPriorityQueue;
 import DataStructures.Heap;
-
-import java.util.Arrays;
 
 /**
  * Created by pryor on 1/18/2019.
@@ -25,6 +22,7 @@ public class JobScheduler {
         }
 
         sortJobs(jobs);//sorts the jobs by arrival time
+
         int processors = 1;//assumes 1 processor
 
         try { //If there are more processors use them
@@ -54,10 +52,12 @@ public class JobScheduler {
         while (run){
             //Adds the jobs when they get received
             if(nextJob < jobs.length){//makes sure no ArrayindexOutOfBounds Exception
-                if(seconds == jobs[nextJob].arrival){//checks to see if the next job arrived
+                while(seconds >= jobs[nextJob].arrival){//checks to see if the next job arrived
                     heap.insertNode(jobs[nextJob], jobs[nextJob].priority);
                     nextJob++;
-
+                    if(nextJob >= jobs.length) {
+                        break;
+                    }
                 }
             } else{
                 run = !heap.isEmpty();
@@ -81,7 +81,6 @@ public class JobScheduler {
                         threadedJobs[i] = null;//don't add anything back to the array
                         j.endTime = seconds;
                         finishTime.append(j.toString() + "\n");
-
                     } else{//Job didn't finish
                         runtime.append("Second: " + seconds + " -- " + j.toString() + "\n");
                         threadedJobs[i] = j;//add it back into the array so it can be put in the heap
@@ -98,7 +97,9 @@ public class JobScheduler {
 
             seconds++;//one time elapsed
         }
+
         //WRITES THE OUTPUT TO output.txt
+        System.out.print(finishTime.toString() + runtime.toString());
         r.overwriteFileWithString(finishTime.toString() + runtime.toString(), r.createFileIfNotExists("output.txt"));
 
     }

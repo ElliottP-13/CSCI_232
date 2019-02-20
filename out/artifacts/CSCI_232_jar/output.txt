@@ -1,0 +1,244 @@
+Jobs Finished
+Finished Job: 3, Priority: 3, Arrival Time: 5
+		Start Time: 5, End Time: 20
+		Waiting Time: 0, Execution Time: 15
+Finished Job: 2, Priority: 2, Arrival Time: 20
+		Start Time: 21, End Time: 26
+		Waiting Time: 1, Execution Time: 5
+Finished Job: 5, Priority: 5, Arrival Time: 10
+		Start Time: 10, End Time: 35
+		Waiting Time: 0, Execution Time: 25
+Finished Job: 4, Priority: 4, Arrival Time: 30
+		Start Time: 30, End Time: 40
+		Waiting Time: 0, Execution Time: 10
+Finished Job: 1, Priority: 1, Arrival Time: 10
+		Start Time: 27, End Time: 53
+		Waiting Time: 17, Execution Time: 26
+
+
+Jobs run by second
+Second: 5 -- Job: 3, Priority: 3, Arrival Time: 5
+		Time Left: 15
+
+Second: 6 -- Job: 3, Priority: 3, Arrival Time: 5
+		Time Left: 14
+
+Second: 7 -- Job: 3, Priority: 3, Arrival Time: 5
+		Time Left: 13
+
+Second: 8 -- Job: 3, Priority: 3, Arrival Time: 5
+		Time Left: 12
+
+Second: 9 -- Job: 3, Priority: 3, Arrival Time: 5
+		Time Left: 11
+
+Second: 10 -- Job: 5, Priority: 5, Arrival Time: 10
+		Time Left: 25
+
+Second: 10 -- Job: 3, Priority: 3, Arrival Time: 5
+		Time Left: 10
+
+Second: 11 -- Job: 5, Priority: 5, Arrival Time: 10
+		Time Left: 24
+
+Second: 11 -- Job: 3, Priority: 3, Arrival Time: 5
+		Time Left: 9
+
+Second: 12 -- Job: 5, Priority: 5, Arrival Time: 10
+		Time Left: 23
+
+Second: 12 -- Job: 3, Priority: 3, Arrival Time: 5
+		Time Left: 8
+
+Second: 13 -- Job: 5, Priority: 5, Arrival Time: 10
+		Time Left: 22
+
+Second: 13 -- Job: 3, Priority: 3, Arrival Time: 5
+		Time Left: 7
+
+Second: 14 -- Job: 5, Priority: 5, Arrival Time: 10
+		Time Left: 21
+
+Second: 14 -- Job: 3, Priority: 3, Arrival Time: 5
+		Time Left: 6
+
+Second: 15 -- Job: 5, Priority: 5, Arrival Time: 10
+		Time Left: 20
+
+Second: 15 -- Job: 3, Priority: 3, Arrival Time: 5
+		Time Left: 5
+
+Second: 16 -- Job: 5, Priority: 5, Arrival Time: 10
+		Time Left: 19
+
+Second: 16 -- Job: 3, Priority: 3, Arrival Time: 5
+		Time Left: 4
+
+Second: 17 -- Job: 5, Priority: 5, Arrival Time: 10
+		Time Left: 18
+
+Second: 17 -- Job: 3, Priority: 3, Arrival Time: 5
+		Time Left: 3
+
+Second: 18 -- Job: 5, Priority: 5, Arrival Time: 10
+		Time Left: 17
+
+Second: 18 -- Job: 3, Priority: 3, Arrival Time: 5
+		Time Left: 2
+
+Second: 19 -- Job: 5, Priority: 5, Arrival Time: 10
+		Time Left: 16
+
+Second: 19 -- Job: 3, Priority: 3, Arrival Time: 5
+		Time Left: 1
+
+Second: 20 -- Job: 5, Priority: 5, Arrival Time: 10
+		Time Left: 15
+
+Second: 21 -- Job: 5, Priority: 5, Arrival Time: 10
+		Time Left: 14
+
+Second: 21 -- Job: 2, Priority: 2, Arrival Time: 20
+		Time Left: 5
+
+Second: 22 -- Job: 5, Priority: 5, Arrival Time: 10
+		Time Left: 13
+
+Second: 22 -- Job: 2, Priority: 2, Arrival Time: 20
+		Time Left: 4
+
+Second: 23 -- Job: 5, Priority: 5, Arrival Time: 10
+		Time Left: 12
+
+Second: 23 -- Job: 2, Priority: 2, Arrival Time: 20
+		Time Left: 3
+
+Second: 24 -- Job: 5, Priority: 5, Arrival Time: 10
+		Time Left: 11
+
+Second: 24 -- Job: 2, Priority: 2, Arrival Time: 20
+		Time Left: 2
+
+Second: 25 -- Job: 5, Priority: 5, Arrival Time: 10
+		Time Left: 10
+
+Second: 25 -- Job: 2, Priority: 2, Arrival Time: 20
+		Time Left: 1
+
+Second: 26 -- Job: 5, Priority: 5, Arrival Time: 10
+		Time Left: 9
+
+Second: 27 -- Job: 5, Priority: 5, Arrival Time: 10
+		Time Left: 8
+
+Second: 27 -- Job: 1, Priority: 1, Arrival Time: 10
+		Time Left: 20
+
+Second: 28 -- Job: 5, Priority: 5, Arrival Time: 10
+		Time Left: 7
+
+Second: 28 -- Job: 1, Priority: 1, Arrival Time: 10
+		Time Left: 19
+
+Second: 29 -- Job: 5, Priority: 5, Arrival Time: 10
+		Time Left: 6
+
+Second: 29 -- Job: 1, Priority: 1, Arrival Time: 10
+		Time Left: 18
+
+Second: 30 -- Job: 5, Priority: 5, Arrival Time: 10
+		Time Left: 5
+
+Second: 30 -- Job: 4, Priority: 4, Arrival Time: 30
+		Time Left: 10
+
+Second: 31 -- Job: 5, Priority: 5, Arrival Time: 10
+		Time Left: 4
+
+Second: 31 -- Job: 4, Priority: 4, Arrival Time: 30
+		Time Left: 9
+
+Second: 32 -- Job: 5, Priority: 5, Arrival Time: 10
+		Time Left: 3
+
+Second: 32 -- Job: 4, Priority: 4, Arrival Time: 30
+		Time Left: 8
+
+Second: 33 -- Job: 5, Priority: 5, Arrival Time: 10
+		Time Left: 2
+
+Second: 33 -- Job: 4, Priority: 4, Arrival Time: 30
+		Time Left: 7
+
+Second: 34 -- Job: 5, Priority: 5, Arrival Time: 10
+		Time Left: 1
+
+Second: 34 -- Job: 4, Priority: 4, Arrival Time: 30
+		Time Left: 6
+
+Second: 35 -- Job: 4, Priority: 4, Arrival Time: 30
+		Time Left: 5
+
+Second: 36 -- Job: 4, Priority: 4, Arrival Time: 30
+		Time Left: 4
+
+Second: 36 -- Job: 1, Priority: 1, Arrival Time: 10
+		Time Left: 17
+
+Second: 37 -- Job: 4, Priority: 4, Arrival Time: 30
+		Time Left: 3
+
+Second: 37 -- Job: 1, Priority: 1, Arrival Time: 10
+		Time Left: 16
+
+Second: 38 -- Job: 4, Priority: 4, Arrival Time: 30
+		Time Left: 2
+
+Second: 38 -- Job: 1, Priority: 1, Arrival Time: 10
+		Time Left: 15
+
+Second: 39 -- Job: 4, Priority: 4, Arrival Time: 30
+		Time Left: 1
+
+Second: 39 -- Job: 1, Priority: 1, Arrival Time: 10
+		Time Left: 14
+
+Second: 40 -- Job: 1, Priority: 1, Arrival Time: 10
+		Time Left: 13
+
+Second: 41 -- Job: 1, Priority: 1, Arrival Time: 10
+		Time Left: 12
+
+Second: 42 -- Job: 1, Priority: 1, Arrival Time: 10
+		Time Left: 11
+
+Second: 43 -- Job: 1, Priority: 1, Arrival Time: 10
+		Time Left: 10
+
+Second: 44 -- Job: 1, Priority: 1, Arrival Time: 10
+		Time Left: 9
+
+Second: 45 -- Job: 1, Priority: 1, Arrival Time: 10
+		Time Left: 8
+
+Second: 46 -- Job: 1, Priority: 1, Arrival Time: 10
+		Time Left: 7
+
+Second: 47 -- Job: 1, Priority: 1, Arrival Time: 10
+		Time Left: 6
+
+Second: 48 -- Job: 1, Priority: 1, Arrival Time: 10
+		Time Left: 5
+
+Second: 49 -- Job: 1, Priority: 1, Arrival Time: 10
+		Time Left: 4
+
+Second: 50 -- Job: 1, Priority: 1, Arrival Time: 10
+		Time Left: 3
+
+Second: 51 -- Job: 1, Priority: 1, Arrival Time: 10
+		Time Left: 2
+
+Second: 52 -- Job: 1, Priority: 1, Arrival Time: 10
+		Time Left: 1
+

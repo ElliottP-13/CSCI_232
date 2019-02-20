@@ -1,4 +1,4 @@
-package JobScheduler;
+package Lab1;
 
 /**
  * Created by pryor on 1/18/2019.
@@ -35,7 +35,7 @@ public class Job {
                     + "\n\t\tWaiting Time: " + (startTime - arrival) + ", Execution Time: " + (endTime - startTime);
         }
         return "Job: " + job + ", Priority: " + priority + ", Arrival Time: " + arrival
-                + "\n\t\tTime Left: " + duration;
+                + "\n\t\tTime Left: " + duration + '\n';
     }
 
 }

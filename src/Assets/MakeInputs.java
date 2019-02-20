@@ -1,8 +1,4 @@
-package JobScheduler;
-
-import Assets.ReadWrite;
-import DataStructures.DLLPriorityQueue;
-import DataStructures.Heap;
+package Assets;
 
 import java.io.File;
 import java.util.Random;
@@ -13,18 +9,18 @@ import java.util.Random;
 public class MakeInputs {
     public static void main(String[] args) {
         Random rand = new Random();
-        int n = 50; //number of trials
         ReadWrite r = new ReadWrite();
         File f = r.createFileIfNotExists("input.txt");
         String writeme = "";
         r.overwriteFileWithString("", f);
+
+        int n = 100; //number of trials
+        int capacity = 50;
+
         for (int i = 0; i < n; i++) {
-            writeme = "" + i;//job name
-            writeme += " " + rand.nextInt(n);//priority
-            writeme += " " + rand.nextInt(10 * n);//arrival time
-            writeme += " " + rand.nextInt(100);//duration
-            writeme += "\n";
+            writeme = "" + rand.nextInt(capacity) + "\n";
             r.appendToFile(writeme,f);
         }
+
     }
 }
