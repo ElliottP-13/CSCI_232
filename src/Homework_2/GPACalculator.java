@@ -1,5 +1,7 @@
 package Homework_2;
 
+import java.io.File;
+import java.io.FileNotFoundException;
 import java.util.Scanner;
 import java.util.TreeMap;
 
@@ -9,7 +11,12 @@ import java.util.TreeMap;
  */
 public class GPACalculator {
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
+        Scanner scanner = null;
+        try {
+            scanner = new Scanner(new File(args[0])); // PASS THE INPUT FILE AS A COMMAND LINE ARGUMENT
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
 
         TreeMap<String, Double> grades = new TreeMap<>();
         grades.put("A+", 4.33);
@@ -23,9 +30,12 @@ public class GPACalculator {
         grades.put("D", 1.00);
         grades.put("F", 0.00);
 
-        scanner.useDelimiter("\\Z");
+        scanner.useDelimiter("\\z");
         String readString = scanner.next();
+
+        //INPUT FILE GRADES MUST BE ON NEW LINE
         String[] data = readString.split("\n");//Assume that the data is on a new line
+        //USE: String[] data = readString.split(", "); if it is comma delimited instead
 
         double gpa = 0;
         for(String grade: data){
