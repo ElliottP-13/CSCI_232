@@ -14,11 +14,15 @@ public class MakeInputs {
         String writeme = "";
         r.overwriteFileWithString("", f);
 
-        int n = 100; //number of trials
-        int capacity = 50;
+        int n = 10; //number of trials
+        int edges = 20;
+        r.appendToFile("p sp " + n + " " + edges + "\n", f);
 
-        for (int i = 0; i < n; i++) {
-            writeme = "" + rand.nextInt(capacity) + "\n";
+        for (int i = 0; i < edges; i++) {
+            int x = rand.nextInt(n);
+            int y = rand.nextInt(n);
+            int weight = rand.nextInt(10) + 1;
+            writeme = "a " + x + " " + y + " " + weight + " " +"\n";
             r.appendToFile(writeme,f);
         }
 
